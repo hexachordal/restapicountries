@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, BrowserRouter as Router, Route } from "react-router-dom";
 
+console.clear();
 
 const CountryPage = ({ match }) => {
   const {
@@ -15,7 +16,7 @@ const CountryPage = ({ match }) => {
       .then((response) => {
         setData(response);
         setIsLoading(false);
-        console.log(`https://restcountries.com/v2/name/${countryName}`);
+        //console.log(response[0]["name"]);
       })
       .catch((error) => console.log(error));
   }, [countryName]);
@@ -24,8 +25,8 @@ const CountryPage = ({ match }) => {
     <>
       {!isLoading && (
         <>
-          <h1>Name: {data.name}</h1>
-          <h2>Region: {data.region}</h2>
+          <h1>Name: {data[0]["name"]}</h1>
+          <h2>Region: {data[0]["region"]}</h2>
           <Link to="/">Back to homepage</Link>
         </>
       )}
