@@ -53,14 +53,14 @@ const HomePage = () => {
     
       {!isLoading &&
         data.map((country) => {
-          return <div key={country.name}>
-          <Link to={`/name/${country.name}`}><div class="countries">
-                <img class="flag" src={country.flag} />
-                <div class="country-text">                
-                <h2 class="country">{country.name}</h2>
-                <p class="population">Population:{country.population}</p>
-                <p class="region">Region:{country.region}</p>
-                <p class="capital">Capital:{country.capital}</p>
+          return <div className = "card" key={country.name}>
+          <Link style={{ textDecoration: 'none' }} to={`/name/${country.name}`}><div className="countries">
+                <img className="flag" src={country.flag} />
+                <div className="country-text">                
+                <h2 className="country">{country.name}</h2>
+                <p className="population">Population:{country.population}</p>
+                <p className="region">Region:{country.region}</p>
+                <p className="capital">Capital:{country.capital}</p>
                 </div>
             </div></Link>
           </div>;
