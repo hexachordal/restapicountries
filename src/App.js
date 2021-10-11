@@ -53,9 +53,17 @@ const HomePage = () => {
     
       {!isLoading &&
         data.map((country) => {
-          return <h5 key={country.name}>
-          <Link to={`/name/${country.name}`}>{country.name}'s Page</Link>
-          </h5>;
+          return <div key={country.name}>
+          <Link to={`/name/${country.name}`}><div class="countries">
+                <img class="flag" src={country.flag} />
+                <div class="country-text">                
+                <h2 class="country">{country.name}</h2>
+                <p class="population">Population:{country.population}</p>
+                <p class="region">Region:{country.region}</p>
+                <p class="capital">Capital:{country.capital}</p>
+                </div>
+            </div></Link>
+          </div>;
         })}
     </>
   );
