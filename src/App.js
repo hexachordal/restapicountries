@@ -72,9 +72,11 @@ const CountryPage = ({ match }) => {
     <>
       {!isLoading && (
         <>
+        <div className = "cPage">
           <h1>Name: {data[0]["name"]["common"]}</h1>
           <h2>Region: {data[0]["region"]}</h2>
           <Link to="/">Back to homepage</Link>
+          </div>
         </>
       )}
     </>
