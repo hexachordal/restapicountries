@@ -1,15 +1,49 @@
-#root {
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#nav {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -webkit-box-shadow: 0px 0px 9px black;
+          box-shadow: 0px 0px 9px black;
+  height: 3rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#nav h3 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1.5rem 1fr;
+      grid-template-columns: 1.5rem 1fr;
+  cursor: pointer;
+}
+
+#main {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
-  row-gap: 2rem;
-  -webkit-column-gap: 2rem;
-          column-gap: 2rem;
+  row-gap: 3rem;
+  -webkit-column-gap: 0rem;
+          column-gap: 0rem;
   place-items: center;
+  padding: 3rem;
 }
 
-#root .countries {
+#main .card {
+  padding-left: 0rem;
+  padding-right: 0rem;
+}
+
+#main .card .countries {
   display: -ms-grid;
   display: grid;
   width: 12rem;
@@ -21,30 +55,30 @@
           box-shadow: 0px 0px 9px black;
 }
 
-#root .countries .flag {
+#main .card .countries .flag {
   width: 100%;
   height: 100%;
   -o-object-fit: fill;
      object-fit: fill;
 }
 
-#root .countries .country-text {
+#main .card .countries .country-text {
   color: black;
 }
 
-#root .countries .country-text .country {
+#main .card .countries .country-text .country {
   font-size: 1rem;
 }
 
-#root .countries .country-text .population {
+#main .card .countries .country-text .population {
   font-size: 0.7rem;
 }
 
-#root .countries .country-text .region {
+#main .card .countries .country-text .region {
   font-size: 0.7rem;
 }
 
-#root .countries .country-text .capital {
+#main .card .countries .country-text .capital {
   font-size: 0.7rem;
 }
 /*# sourceMappingURL=style.css.map */

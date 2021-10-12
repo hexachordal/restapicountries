@@ -3,6 +3,53 @@ import { Link, BrowserRouter as Router, Route } from "react-router-dom";
 
 console.clear();
 
+const DarkMode = () => {
+  let root = document.getElementById("root");
+  let nav = document.getElementById("nav");
+  let countryText = document.getElementsByClassName("country-text");
+  let countries = document.getElementsByClassName("countries")
+
+  if(nav.style.backgroundColor === "" || nav.style.backgroundColor === "white"){
+    nav.style.backgroundColor = "rgb(43, 57, 69)";
+    nav.style.boxShadow = "none";
+    root.style.color = "white";
+    root.style.backgroundColor = "rgb(51, 62, 72)";
+  
+
+  
+    for (let ct = 0; ct < countryText.length; ct++){
+      countryText[ct].style.color = "white";
+      countryText[ct].style.backgroundColor = "rgb(43, 57, 69)";
+      countries[ct].style.boxShadow = "none";
+  }} else {
+    nav.style.backgroundColor = "white";
+    nav.style.boxShadow = "0px 0px 9px black";
+    root.style.color = "black";
+    root.style.backgroundColor = "white";
+    
+  
+    for (let rt = 0; rt < countryText.length; rt++){
+      countryText[rt].style.color = "black";
+      countryText[rt].style.backgroundColor = "white";
+      countries[rt].style.boxShadow = "0px 0px 9px black";
+    }
+}
+  
+}
+
+const NavBar = () => {
+
+  //<ion-icon name="moon-outline"></ion-icon>
+
+  return (
+    <nav id="nav">
+      <h1>Where in the World?</h1>
+      <h3 onClick={DarkMode}><ion-icon name="moon"></ion-icon>Dark Mode</h3>
+      
+    </nav>
+  )
+}
+
 const CountryPage = ({ match }) => {
   const {
     params: { countryName },
@@ -50,7 +97,6 @@ const HomePage = () => {
 
   return (
     <>
-    
       {!isLoading &&
         data.map((country) => {
           return <div className = "card" key={country["name"]["common"]}>
@@ -72,10 +118,13 @@ const HomePage = () => {
 const App = () => {
   return (
     <>
+      <NavBar />
+      <div id="main">
       <Router>
         <Route exact path="/" component={HomePage} />
         <Route path="/name/:countryName" component={CountryPage} />
       </Router>
+      </div>
     </>
   );
 };
