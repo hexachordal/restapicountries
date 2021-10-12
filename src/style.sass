@@ -1,12 +1,11 @@
 
 #root
-  display: grid
-  grid-template-columns: repeat(4, 1fr)
-  row-gap: 2rem
-  column-gap: 2rem
-  place-items: center
+    display: grid
+    grid-template-columns: repeat(4, 1fr)
+    row-gap: 2rem
+    column-gap: 2rem
+    place-items: center
 
-   
     .countries
         display: grid
         width: 12rem
@@ -18,17 +17,14 @@
         .flag
             width: 100%
             height: 100%
-            object-fit: cover
+            object-fit: fill
         .country-text
             color: black
             .country
-                font-size: 1.2rem
+                font-size: 1rem
             .population
                 font-size: 0.7rem
             .region
                 font-size: 0.7rem
             .capital
                 font-size: 0.7rem
-
-
-

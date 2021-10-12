@@ -11,12 +11,12 @@ const CountryPage = ({ match }) => {
   const [data, setData] = useState();
 
   useEffect(() => {
-    fetch(`https://restcountries.com/v2/name/${countryName}`, {})
+    fetch(`https://restcountries.com/v3.1/name/${countryName}`, {})
       .then((res) => res.json())
       .then((response) => {
         setData(response);
         setIsLoading(false);
-        //console.log(response[0]["name"]);
+        console.log(response[0]["name"]["common"]);
       })
       .catch((error) => console.log(error));
   }, [countryName]);
@@ -25,7 +25,7 @@ const CountryPage = ({ match }) => {
     <>
       {!isLoading && (
         <>
-          <h1>Name: {data[0]["name"]}</h1>
+          <h1>Name: {data[0]["name"]["common"]}</h1>
           <h2>Region: {data[0]["region"]}</h2>
           <Link to="/">Back to homepage</Link>
         </>
@@ -39,7 +39,7 @@ const HomePage = () => {
   const [data, setData] = useState();
 
   useEffect(() => {
-    fetch("https://restcountries.com/v2/all", {})
+    fetch("https://restcountries.com/v3.1/all", {})
       .then((res) => res.json())
       .then((response) => {
         setData(response);
@@ -53,11 +53,11 @@ const HomePage = () => {
     
       {!isLoading &&
         data.map((country) => {
-          return <div className = "card" key={country.name}>
-          <Link style={{ textDecoration: 'none' }} to={`/name/${country.name}`}><div className="countries">
-                <img className="flag" src={country.flag} />
+          return <div className = "card" key={country["name"]["common"]}>
+          <Link style={{ textDecoration: 'none' }} to={`/name/${country["name"]["common"]}`}><div className="countries">
+                <img className="flag" alt="flag" src={country["flags"]["png"]} />
                 <div className="country-text">                
-                <h2 className="country">{country.name}</h2>
+                <h2 className="country">{country["name"]["common"]}</h2>
                 <p className="population">Population:{country.population}</p>
                 <p className="region">Region:{country.region}</p>
                 <p className="capital">Capital:{country.capital}</p>
