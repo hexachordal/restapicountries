@@ -86,6 +86,7 @@ const CountryPage = ({ match }) => {
 const HomePage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState();
+  
 
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all", {})
@@ -96,6 +97,8 @@ const HomePage = () => {
       })
       .catch((error) => console.log(error));
   }, []);
+
+  console.log(JSON.stringify(data));
 
   return (
     <>
@@ -122,6 +125,7 @@ const App = () => {
     <>
       <NavBar />
       <div id="main">
+      <input id="search" placeholder="Search" />
       <Router>
         <Route exact path="/" component={HomePage} />
         <Route path="/name/:countryName" component={CountryPage} />
